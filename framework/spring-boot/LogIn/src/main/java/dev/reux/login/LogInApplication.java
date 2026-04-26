@@ -24,7 +24,7 @@ public class LogInApplication implements CommandLineRunner{
         System.out.println("APP RUNNING SUCCESSFULLY");
         //Lista de tipo Usuarios llamada usuario
         //se toma la lista y se convierte en un flujo para recorrer las lista y metodo de referencia para mostrar uno por uno.
-        List<Usuarios> usuarios = repository.findAll();
-        usuarios.stream().forEach(System.out::println);
+        //List<Usuarios> usuarios = repository.findAll();
+        //usuarios.stream().forEach(System.out::println);
     }
 }
