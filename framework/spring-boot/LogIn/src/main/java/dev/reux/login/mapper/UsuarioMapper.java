@@ -11,6 +11,10 @@ public class UsuarioMapper {
     public static UsuariosDTO copyDTO (Usuarios usuario){
         return new UsuariosDTO(
                 usuario.getUsername(),
+                usuario.getPassword(),
+                usuario.getEmail(),
+                usuario.getName(),
+                usuario.getLastname(),
                 usuario.getAge(),
                 usuario.getGender()
         );
@@ -19,6 +23,10 @@ public class UsuarioMapper {
     public static Usuarios copyEntity (UsuariosDTO dto) {
         Usuarios usuario = new Usuarios();
         usuario.setUsername(dto.getUsername());
+        usuario.setPassword(dto.getPassword());
+        usuario.setEmail(dto.getEmail());
+        usuario.setName(dto.getName());
+        usuario.setLastname(dto.getLastname());
         usuario.setAge(dto.getAge());
         usuario.setGender(dto.getGender());
         return usuario;

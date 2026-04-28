@@ -1,41 +1,33 @@
 package dev.reux.login.controller;
-
 import dev.reux.login.DTOs.UsuariosDTO;
-import dev.reux.login.entity.Usuarios;
-import dev.reux.login.mapper.UsuarioMapper;
-import dev.reux.login.repository.Repos_Usuarios;
+import dev.reux.login.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api")
 public class Controlador {
 
-
-
-    //avanzando el codigo mopvidficamos a que el controlador usara a la DTO para acceder a los datos  y no directamente a la BD.
-    //@GetMapping("/usuarios")
-    //la vista devolvera una lista de tipo Usuarios que retorna un lista de todos los usuarios del repositorio
-    //public List<Usuarios> consulta(){
-    //    return (List<Usuarios>) repository.findAll();
-    //}
-
-    //inyeccion de dependencias para invocacion de los metodos del repositorio
+    //inyeccion de dependencias para invocacion de los metodos del servicio
     @Autowired
-    private Repos_Usuarios repository;
+    private UsuariosService service;
 
-    @GetMapping("/usuarios")
-    public List <UsuariosDTO> consulta(){
-        return repository.findAll()
-                    .stream()
-                    .map(UsuarioMapper::copyDTO)
-
-                    .collect(Collectors.toList());
+    @GetMapping("/service")
+    public List <UsuariosDTO> listar(){
+        return service.consulta();
     }
+    //Anotacion tipo POST
+    @PostMapping("/insert")
+                                        //CONVIERTE EL ELEMENTO DE JSON/HTML ETC..
+                                        // A ELEMENTO DE JAVA DE CLASE TIPO UsuariosDTO llamada dto
+    public  UsuariosDTO insertarUsuario(@RequestBody UsuariosDTO dto){
+        //utiliza la variable service para acceder al metodo insertarUsuario...
+        //y guardar el dto que es el elemento de tipo json o html ya convertido a java
+        return service.insertarUsuario(dto);
+
+    }
+
 
 }
