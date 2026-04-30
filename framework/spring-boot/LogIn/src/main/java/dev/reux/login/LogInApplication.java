@@ -28,3 +28,6 @@ public class LogInApplication implements CommandLineRunner{
         //usuarios.stream().forEach(System.out::println);
     }
 }
+
+
+//VOY A PASAR A COMO COLOCAR UNA CONTRASENA EN PARTICULAR PARA Q NO SE REINICIE CON EL SERVIDOR POR AHI VOYYY XD XD XD
